@@ -1,0 +1,1457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amber Wraps — Premium Car Detailing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --amber: #EF9F27;
+    --amber-dark: #BA7517;
+    --amber-deep: #633806;
+    --amber-light: #FAC775;
+    --amber-pale: #FAEEDA;
+    --black: #0D0C0A;
+    --charcoal: #1A1916;
+    --mid: #2C2B27;
+    --smoke: #888780;
+    --off-white: #F5F2EC;
+    --white: #FFFFFF;
+    --display: 'Bebas Neue', sans-serif;
+    --body: 'Barlow', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--body);
+    background: var(--black);
+    color: var(--off-white);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 4rem;
+    background: rgba(13,12,10,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(239,159,39,0.15);
+    transition: background 0.3s;
+  }
+
+  .nav-logo {
+    font-family: var(--display);
+    font-size: 2rem;
+    letter-spacing: 0.05em;
+    color: var(--amber);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--off-white); }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: var(--body);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--smoke);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--amber); }
+
+  .nav-cta {
+    background: var(--amber);
+    color: var(--black) !important;
+    padding: 0.6rem 1.5rem;
+    border-radius: 2px;
+    font-weight: 600 !important;
+  }
+
+  .nav-cta:hover { background: var(--amber-light); color: var(--black) !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 4rem 6rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      #0D0C0A 0%,
+      #1a1510 40%,
+      #2a1d08 70%,
+      #0D0C0A 100%
+    );
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(239,159,39,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(239,159,39,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .hero-glow {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(239,159,39,0.12) 0%, transparent 70%);
+    top: 10%;
+    right: 5%;
+    pointer-events: none;
+  }
+
+  .hero-accent {
+    position: absolute;
+    top: 0; right: 0;
+    width: 45%;
+    height: 100%;
+    border-left: 1px solid rgba(239,159,39,0.08);
+    background: linear-gradient(180deg, rgba(239,159,39,0.03) 0%, transparent 100%);
+  }
+
+  .hero-tag {
+    position: relative;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .hero-tag::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--amber);
+  }
+
+  .hero h1 {
+    position: relative;
+    font-family: var(--display);
+    font-size: clamp(5rem, 12vw, 11rem);
+    line-height: 0.9;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero h1 .line-gold { color: var(--amber); display: block; }
+  .hero h1 .line-white { color: var(--off-white); display: block; }
+
+  .hero-bottom {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .hero-desc {
+    max-width: 400px;
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--smoke);
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-shrink: 0;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--amber);
+    color: var(--black);
+    font-family: var(--body);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 1rem 2.5rem;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .btn-primary:hover { background: var(--amber-light); transform: translateY(-2px); }
+
+  .btn-outline {
+    display: inline-block;
+    background: transparent;
+    color: var(--off-white);
+    font-family: var(--body);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 1rem 2.5rem;
+    border: 1px solid rgba(245,242,236,0.25);
+    text-decoration: none;
+    border-radius: 2px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .btn-outline:hover { border-color: var(--amber); color: var(--amber); }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--smoke);
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--amber), transparent);
+    animation: scrollPulse 1.8s ease-in-out infinite;
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.3; transform: scaleY(1); }
+    50% { opacity: 1; transform: scaleY(1.2); }
+  }
+
+  /* STATS BAR */
+  .stats-bar {
+    background: var(--amber);
+    padding: 1.5rem 4rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .stat-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: var(--display);
+    font-size: 2.8rem;
+    color: var(--black);
+    letter-spacing: 0.02em;
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--amber-deep);
+    line-height: 1.3;
+    text-align: left;
+    max-width: 80px;
+  }
+
+  .stat-div {
+    width: 1px;
+    height: 40px;
+    background: rgba(13,12,10,0.2);
+  }
+
+  /* SECTIONS */
+  section { padding: 7rem 4rem; }
+
+  .section-tag {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .section-tag::before {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 1px;
+    background: var(--amber);
+  }
+
+  h2 {
+    font-family: var(--display);
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    line-height: 0.95;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+
+  /* SERVICES */
+  .services { background: var(--charcoal); }
+
+  .services-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 4rem;
+    gap: 2rem;
+  }
+
+  .services-intro {
+    max-width: 380px;
+    font-size: 0.95rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--smoke);
+    margin-top: 1.5rem;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    background: rgba(239,159,39,0.1);
+  }
+
+  .service-card {
+    background: var(--charcoal);
+    padding: 2.5rem 2rem;
+    position: relative;
+    transition: background 0.3s;
+    cursor: default;
+  }
+
+  .service-card:hover { background: var(--mid); }
+
+  .service-card:hover .service-icon { color: var(--amber); }
+
+  .service-num {
+    font-family: var(--display);
+    font-size: 4rem;
+    color: rgba(239,159,39,0.1);
+    line-height: 1;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    letter-spacing: 0.05em;
+    transition: color 0.3s;
+  }
+
+  .service-card:hover .service-num { color: rgba(239,159,39,0.2); }
+
+  .service-icon {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--smoke);
+    transition: color 0.3s;
+  }
+
+  .service-title {
+    font-family: var(--display);
+    font-size: 1.7rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--off-white);
+    margin-bottom: 0.75rem;
+  }
+
+  .service-desc {
+    font-size: 0.875rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--smoke);
+  }
+
+  .service-arrow {
+    margin-top: 2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--amber);
+    opacity: 0;
+    transform: translateX(-8px);
+    transition: opacity 0.3s, transform 0.3s;
+  }
+
+  .service-card:hover .service-arrow { opacity: 1; transform: translateX(0); }
+
+  /* WHY US */
+  .why { background: var(--black); }
+
+  .why-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .why-visual {
+    position: relative;
+    height: 500px;
+  }
+
+  .why-box-big {
+    position: absolute;
+    top: 0; left: 0;
+    width: 75%;
+    height: 75%;
+    background: var(--mid);
+    border: 1px solid rgba(239,159,39,0.12);
+  }
+
+  .why-box-small {
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 50%;
+    height: 50%;
+    background: var(--amber);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.5rem;
+  }
+
+  .why-badge-label {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--amber-deep);
+    margin-bottom: 0.25rem;
+  }
+
+  .why-badge-val {
+    font-family: var(--display);
+    font-size: 3.5rem;
+    color: var(--black);
+    line-height: 1;
+  }
+
+  .why-center-badge {
+    position: absolute;
+    top: 55%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    background: var(--charcoal);
+    border: 1px solid var(--amber);
+    padding: 1rem 1.5rem;
+    text-align: center;
+    z-index: 2;
+  }
+
+  .why-center-num {
+    font-family: var(--display);
+    font-size: 2.5rem;
+    color: var(--amber);
+    line-height: 1;
+  }
+
+  .why-center-text {
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--smoke);
+    margin-top: 0.25rem;
+  }
+
+  .why-content h2 { margin-bottom: 1.5rem; }
+
+  .why-lead {
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--smoke);
+    margin-bottom: 2.5rem;
+  }
+
+  .why-points {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .why-point {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+  }
+
+  .why-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--amber);
+    flex-shrink: 0;
+    margin-top: 0.6rem;
+  }
+
+  .why-point-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--off-white);
+    margin-bottom: 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .why-point-desc {
+    font-size: 0.85rem;
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--smoke);
+  }
+
+  /* PROCESS */
+  .process { background: var(--charcoal); }
+
+  .process h2 { margin-bottom: 1rem; }
+  .process-sub {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: var(--smoke);
+    margin-bottom: 4rem;
+    max-width: 500px;
+  }
+
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 1px solid rgba(239,159,39,0.2);
+  }
+
+  .process-step {
+    padding: 2.5rem 2rem 2.5rem 0;
+    border-right: 1px solid rgba(239,159,39,0.1);
+    position: relative;
+  }
+
+  .process-step:last-child { border-right: none; padding-right: 0; }
+  .process-step:not(:first-child) { padding-left: 2rem; }
+
+  .step-num {
+    font-family: var(--display);
+    font-size: 5rem;
+    color: rgba(239,159,39,0.08);
+    line-height: 1;
+    margin-bottom: 1.5rem;
+  }
+
+  .step-title {
+    font-family: var(--display);
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--off-white);
+    margin-bottom: 0.75rem;
+  }
+
+  .step-desc {
+    font-size: 0.85rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--smoke);
+  }
+
+  /* GALLERY TEASER */
+  .gallery-teaser { background: var(--black); padding: 5rem 4rem; }
+
+  .gallery-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 2.5rem;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 280px 280px;
+    gap: 3px;
+  }
+
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .gallery-item:first-child {
+    grid-row: 1 / 3;
+  }
+
+  .gallery-placeholder {
+    width: 100%;
+    height: 100%;
+    background: var(--mid);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    transition: background 0.3s;
+  }
+
+  .gallery-item:hover .gallery-placeholder { background: #2e2d28; }
+
+  .gallery-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(239,159,39,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+  }
+
+  .gallery-cap {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--smoke);
+  }
+
+  /* TESTIMONIALS */
+  .testimonials { background: var(--charcoal); }
+
+  .testimonials h2 { margin-bottom: 3rem; }
+
+  .testi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .testi-card {
+    background: var(--black);
+    border: 1px solid rgba(239,159,39,0.1);
+    padding: 2rem;
+    transition: border-color 0.3s;
+  }
+
+  .testi-card:hover { border-color: rgba(239,159,39,0.4); }
+
+  .stars {
+    display: flex;
+    gap: 3px;
+    margin-bottom: 1.25rem;
+  }
+
+  .star {
+    color: var(--amber);
+    font-size: 0.85rem;
+  }
+
+  .testi-text {
+    font-size: 0.9rem;
+    font-weight: 300;
+    line-height: 1.75;
+    color: var(--smoke);
+    margin-bottom: 1.5rem;
+    font-style: italic;
+  }
+
+  .testi-author {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .testi-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--amber);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--display);
+    font-size: 1rem;
+    color: var(--black);
+  }
+
+  .testi-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--off-white);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .testi-car {
+    font-size: 0.75rem;
+    color: var(--smoke);
+  }
+
+  /* CONTACT */
+  .contact { background: var(--black); }
+
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .contact h2 { margin-bottom: 1.5rem; }
+
+  .contact-lead {
+    font-size: 0.95rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--smoke);
+    margin-bottom: 3rem;
+  }
+
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .contact-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .contact-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--amber);
+    min-width: 80px;
+    padding-top: 2px;
+  }
+
+  .contact-val {
+    font-size: 0.9rem;
+    color: var(--off-white);
+    line-height: 1.5;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  label {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--smoke);
+  }
+
+  input, select, textarea {
+    background: var(--charcoal);
+    border: 1px solid rgba(239,159,39,0.15);
+    color: var(--off-white);
+    font-family: var(--body);
+    font-size: 0.9rem;
+    font-weight: 300;
+    padding: 0.875rem 1rem;
+    outline: none;
+    border-radius: 2px;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+
+  input:focus, select:focus, textarea:focus {
+    border-color: var(--amber);
+  }
+
+  select option { background: var(--charcoal); }
+
+  textarea { resize: vertical; min-height: 120px; }
+
+  .form-submit {
+    background: var(--amber);
+    color: var(--black);
+    border: none;
+    font-family: var(--body);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 1.1rem 2rem;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: background 0.2s;
+    align-self: flex-start;
+  }
+
+  .form-submit:hover { background: var(--amber-light); }
+
+  /* FOOTER */
+  footer {
+    background: var(--charcoal);
+    padding: 3rem 4rem 2rem;
+    border-top: 1px solid rgba(239,159,39,0.12);
+  }
+
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 3rem;
+    gap: 2rem;
+  }
+
+  .footer-logo {
+    font-family: var(--display);
+    font-size: 2.5rem;
+    color: var(--amber);
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  .footer-logo span { color: var(--off-white); }
+
+  .footer-tagline {
+    font-size: 0.8rem;
+    color: var(--smoke);
+    font-weight: 300;
+    max-width: 220px;
+    line-height: 1.6;
+  }
+
+  .footer-nav {
+    display: flex;
+    gap: 4rem;
+  }
+
+  .footer-col-title {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 1.25rem;
+  }
+
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .footer-links a {
+    font-size: 0.85rem;
+    color: var(--smoke);
+    text-decoration: none;
+    font-weight: 300;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--amber); }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(239,159,39,0.08);
+  }
+
+  .footer-copy {
+    font-size: 0.75rem;
+    color: var(--smoke);
+    font-weight: 300;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .social-link {
+    width: 34px;
+    height: 34px;
+    border: 1px solid rgba(239,159,39,0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--smoke);
+    text-decoration: none;
+    font-size: 0.8rem;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .social-link:hover { border-color: var(--amber); color: var(--amber); }
+
+  /* Animations */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-up { animation: fadeUp 0.8s ease forwards; }
+  .delay-1 { animation-delay: 0.1s; opacity: 0; }
+  .delay-2 { animation-delay: 0.25s; opacity: 0; }
+  .delay-3 { animation-delay: 0.4s; opacity: 0; }
+  .delay-4 { animation-delay: 0.55s; opacity: 0; }
+
+  /* MOBILE NAV */
+  .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+  .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--off-white); margin: 5px 0; transition: 0.3s; }
+
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hamburger { display: block; }
+
+    section { padding: 4rem 1.5rem; }
+    .hero { padding: 0 1.5rem 4rem; }
+    .stats-bar { padding: 1.5rem; flex-wrap: wrap; justify-content: center; }
+    .stat-div { display: none; }
+
+    .services-header { flex-direction: column; align-items: flex-start; }
+    .services-grid { grid-template-columns: 1fr; }
+    .why-inner { grid-template-columns: 1fr; }
+    .why-visual { display: none; }
+    .process-steps { grid-template-columns: 1fr 1fr; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+    .gallery-item:first-child { grid-row: auto; }
+    .testi-grid { grid-template-columns: 1fr; }
+    .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .form-row { grid-template-columns: 1fr; }
+    .footer-top { flex-direction: column; }
+    .footer-nav { gap: 2rem; }
+    .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Amber<span>Wraps</span></a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact" class="nav-cta">Book Now</a></li>
+  </ul>
+  <button class="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-accent"></div>
+
+  <div class="hero-tag fade-up delay-1">Premium Car Detailing &amp; Protection</div>
+
+  <h1 class="fade-up delay-2">
+    <span class="line-white">Your Car.</span>
+    <span class="line-gold">Our Obsession.</span>
+  </h1>
+
+  <div class="hero-bottom fade-up delay-3">
+    <p class="hero-desc">From colour correction to full vinyl wraps — we treat every vehicle like a masterpiece. Precision work, premium materials, guaranteed results.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Get a Quote</a>
+      <a href="#services" class="btn-outline">Our Services</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    Scroll
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat-item">
+    <div class="stat-num">500+</div>
+    <div class="stat-label">Vehicles Transformed</div>
+  </div>
+  <div class="stat-div"></div>
+  <div class="stat-item">
+    <div class="stat-num">8+</div>
+    <div class="stat-label">Years of Excellence</div>
+  </div>
+  <div class="stat-div"></div>
+  <div class="stat-item">
+    <div class="stat-num">100%</div>
+    <div class="stat-label">Satisfaction Rate</div>
+  </div>
+  <div class="stat-div"></div>
+  <div class="stat-item">
+    <div class="stat-num">5★</div>
+    <div class="stat-label">Average Rating</div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-header">
+    <div>
+      <div class="section-tag">What We Do</div>
+      <h2>Our <span style="color:var(--amber)">Services</span></h2>
+    </div>
+    <p class="services-intro">Every service is carried out by trained specialists using industry-leading products. No shortcuts. No compromises.</p>
+  </div>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-num">01</div>
+      <div class="service-icon">◈</div>
+      <div class="service-title">Colour Correction</div>
+      <p class="service-desc">Multi-stage paint correction removing swirl marks, scratches, oxidation and water spots — restoring your paint to showroom clarity.</p>
+      <div class="service-arrow">Learn More →</div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-num">02</div>
+      <div class="service-icon">◉</div>
+      <div class="service-title">Paint Protection Film</div>
+      <p class="service-desc">Military-grade clear PPF shields your paint from stone chips, road debris and UV damage. Self-healing technology keeps it invisible.</p>
+      <div class="service-arrow">Learn More →</div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-num">03</div>
+      <div class="service-icon">◫</div>
+      <div class="service-title">Colour Wraps</div>
+      <p class="service-desc">Transform your vehicle with a stunning colour change wrap. Matte, gloss, satin, chrome or custom finishes — all fully reversible.</p>
+      <div class="service-arrow">Learn More →</div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-num">04</div>
+      <div class="service-icon">◌</div>
+      <div class="service-title">Clear Wraps</div>
+      <p class="service-desc">Protect your original paint with a crystal-clear wrap that preserves the factory finish while adding an invisible armour layer.</p>
+      <div class="service-arrow">Learn More →</div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-num">05</div>
+      <div class="service-icon">◧</div>
+      <div class="service-title">Custom Decals &amp; Signage</div>
+      <p class="service-desc">From racing stripes to full business signage — precision-cut vinyl graphics designed and installed with flawless results.</p>
+      <div class="service-arrow">Learn More →</div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-num">06</div>
+      <div class="service-icon">◎</div>
+      <div class="service-title">Premium Car Wash</div>
+      <p class="service-desc">Hand-wash, decontamination, interior detailing and ceramic coating maintenance. Your car, spotless and protected every visit.</p>
+      <div class="service-arrow">Learn More →</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why" id="why">
+  <div class="why-inner">
+    <div class="why-visual">
+      <div class="why-box-big"></div>
+      <div class="why-box-small">
+        <div class="why-badge-label">Vehicles wrapped</div>
+        <div class="why-badge-val">500+</div>
+      </div>
+      <div class="why-center-badge">
+        <div class="why-center-num">8 YRS</div>
+        <div class="why-center-text">Industry Experience</div>
+      </div>
+    </div>
+
+    <div class="why-content">
+      <div class="section-tag">Why Amber Wraps</div>
+      <h2>Built on <span style="color:var(--amber)">Precision</span></h2>
+      <p class="why-lead">We don't just wrap cars — we obsess over every millimetre. Our team combines technical mastery with a genuine passion for automotive aesthetics.</p>
+
+      <div class="why-points">
+        <div class="why-point">
+          <div class="why-dot"></div>
+          <div>
+            <div class="why-point-title">Certified Installers</div>
+            <p class="why-point-desc">Our technicians are factory-trained and certified with leading wrap and PPF brands.</p>
+          </div>
+        </div>
+        <div class="why-point">
+          <div class="why-dot"></div>
+          <div>
+            <div class="why-point-title">Premium Materials Only</div>
+            <p class="why-point-desc">We use 3M, Avery Dennison and XPEL products — no budget alternatives.</p>
+          </div>
+        </div>
+        <div class="why-point">
+          <div class="why-dot"></div>
+          <div>
+            <div class="why-point-title">Guaranteed Workmanship</div>
+            <p class="why-point-desc">Every job is backed by our quality guarantee. If something isn't right, we fix it. Period.</p>
+          </div>
+        </div>
+        <div class="why-point">
+          <div class="why-dot"></div>
+          <div>
+            <div class="why-point-title">Climate-Controlled Workshop</div>
+            <p class="why-point-desc">All wrapping is done in our dust-free, temperature-controlled facility for flawless installation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="section-tag">How It Works</div>
+  <h2>The <span style="color:var(--amber)">Process</span></h2>
+  <p class="process-sub">Four simple steps from inquiry to the moment you drive away in a transformed vehicle.</p>
+
+  <div class="process-steps">
+    <div class="process-step">
+      <div class="step-num">01</div>
+      <div class="step-title">Consult</div>
+      <p class="step-desc">Tell us your vision. We'll assess your vehicle, recommend the right service and provide a detailed, no-obligation quote.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">02</div>
+      <div class="step-title">Design</div>
+      <p class="step-desc">For wraps and decals, we create a digital preview so you can see exactly how your vehicle will look before we start.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">03</div>
+      <div class="step-title">Install</div>
+      <p class="step-desc">Our certified team gets to work in our precision workshop. Most jobs are completed within 1–3 days, depending on the service.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">04</div>
+      <div class="step-title">Deliver</div>
+      <p class="step-desc">We do a final inspection together. You drive away completely satisfied — or we don't hand over the keys.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery-teaser" id="gallery">
+  <div class="gallery-header">
+    <div>
+      <div class="section-tag">Our Work</div>
+      <h2>Recent <span style="color:var(--amber)">Transformations</span></h2>
+    </div>
+    <a href="#contact" class="btn-outline">View Full Gallery</a>
+  </div>
+
+  <div class="gallery-grid">
+    <div class="gallery-item">
+      <div class="gallery-placeholder" style="height:563px; background: linear-gradient(135deg, #1a1916 0%, #2a1d08 100%);">
+        <div class="gallery-icon">🚗</div>
+        <div class="gallery-cap">Full Colour Wrap</div>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-placeholder" style="height:280px; background: linear-gradient(135deg, #1e1c18 0%, #261a06 100%);">
+        <div class="gallery-icon">🎨</div>
+        <div class="gallery-cap">Paint Correction</div>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-placeholder" style="height:280px; background: linear-gradient(135deg, #1a1916 0%, #2c1e08 100%);">
+        <div class="gallery-icon">🛡️</div>
+        <div class="gallery-cap">PPF Install</div>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-placeholder" style="height:280px; background: linear-gradient(135deg, #201e1a 0%, #231803 100%);">
+        <div class="gallery-icon">✂️</div>
+        <div class="gallery-cap">Custom Decals</div>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-placeholder" style="height:280px; background: linear-gradient(135deg, #1c1a16 0%, #281b05 100%);">
+        <div class="gallery-icon">🔲</div>
+        <div class="gallery-cap">Clear Wrap</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="section-tag">Client Reviews</div>
+  <h2>What They <span style="color:var(--amber)">Say</span></h2>
+
+  <div class="testi-grid" style="margin-top:3rem;">
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">"Amber Wraps did an absolute masterclass on my Mustang. The colour wrap is flawless — I've had strangers stop me in car parks to ask about it. Couldn't be happier."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">JM</div>
+        <div>
+          <div class="testi-name">James M.</div>
+          <div class="testi-car">2022 Ford Mustang GT</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">"Professional from start to finish. The paint correction on my BMW brought the paint back to life — I thought I'd need a full respray. Saved me thousands."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">SP</div>
+        <div>
+          <div class="testi-name">Sarah P.</div>
+          <div class="testi-car">2019 BMW M4</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">"Had full fleet signage done for our business. Three vans, all done within the week, perfectly consistent and branded. The team communication was excellent throughout."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">DK</div>
+        <div>
+          <div class="testi-name">David K.</div>
+          <div class="testi-car">Business Fleet — 3 Vans</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div>
+      <div class="section-tag">Get in Touch</div>
+      <h2>Book Your <span style="color:var(--amber)">Appointment</span></h2>
+      <p class="contact-lead">Ready to transform your vehicle? Fill out the form and we'll get back to you within 24 hours with a detailed quote.</p>
+
+      <div class="contact-details">
+        <div class="contact-item">
+          <div class="contact-label">Phone</div>
+          <div class="contact-val">+61 (0) 400 000 000</div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-label">Email</div>
+          <div class="contact-val">hello@amberwraps.com.au</div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-label">Location</div>
+          <div class="contact-val">123 Workshop Lane<br>Sydney NSW 2000</div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-label">Hours</div>
+          <div class="contact-val">Mon – Fri: 8am – 6pm<br>Sat: 9am – 4pm</div>
+        </div>
+      </div>
+    </div>
+
+    <form class="contact-form" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-field">
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" placeholder="John" required>
+        </div>
+        <div class="form-field">
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" placeholder="Smith" required>
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="john@example.com" required>
+      </div>
+
+      <div class="form-field">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" placeholder="+61 400 000 000">
+      </div>
+
+      <div class="form-field">
+        <label for="service">Service Interested In</label>
+        <select id="service">
+          <option value="">Select a service...</option>
+          <option>Colour Correction</option>
+          <option>Paint Protection Film (PPF)</option>
+          <option>Colour Wrap</option>
+          <option>Clear Wrap</option>
+          <option>Custom Decals</option>
+          <option>Car Signage</option>
+          <option>Premium Car Wash</option>
+          <option>Multiple / Unsure</option>
+        </select>
+      </div>
+
+      <div class="form-field">
+        <label for="vehicle">Vehicle Details</label>
+        <input type="text" id="vehicle" placeholder="e.g. 2021 Toyota GR86 — White">
+      </div>
+
+      <div class="form-field">
+        <label for="message">Message</label>
+        <textarea id="message" placeholder="Tell us more about what you're after..."></textarea>
+      </div>
+
+      <button type="submit" class="form-submit">Send Enquiry →</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <a href="#" class="footer-logo">Amber<span>Wraps</span></a>
+      <p class="footer-tagline">Premium car detailing, wrapping and protection — done right, every time.</p>
+    </div>
+
+    <div class="footer-nav">
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-links">
+          <li><a href="#services">Colour Correction</a></li>
+          <li><a href="#services">Paint Protection</a></li>
+          <li><a href="#services">Colour Wraps</a></li>
+          <li><a href="#services">Clear Wraps</a></li>
+          <li><a href="#services">Custom Decals</a></li>
+          <li><a href="#services">Car Wash</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="#why">About Us</a></li>
+          <li><a href="#process">Our Process</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#testimonials">Reviews</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2025 Amber Wraps. All rights reserved. ABN 00 000 000 000</p>
+    <div class="social-links">
+      <a href="#" class="social-link" aria-label="Instagram">IG</a>
+      <a href="#" class="social-link" aria-label="Facebook">FB</a>
+      <a href="#" class="social-link" aria-label="TikTok">TK</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.form-submit');
+    btn.textContent = 'Enquiry Sent ✓';
+    btn.style.background = '#3B6D11';
+    btn.style.color = '#EAF3DE';
+    setTimeout(() => {
+      btn.textContent = 'Send Enquiry →';
+      btn.style.background = '';
+      btn.style.color = '';
+      e.target.reset();
+    }, 3000);
+  }
+
+  // Intersection observer for scroll reveals
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.service-card, .testi-card, .process-step, .why-point').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
+  });
+
+  // Scroll-triggered service card stagger
+  document.querySelectorAll('.service-card').forEach((el, i) => {
+    el.style.transitionDelay = (i * 0.08) + 's';
+  });
+</script>
+</body>
+</html>
